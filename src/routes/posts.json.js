@@ -4,7 +4,12 @@ export async function get() {
   const posts = await getEnrichedPosts(process.env.NOTION_DATABASE);
 
   if (posts) {
-    return { body: posts };
+    return {
+      body: posts,
+      headers: {
+        'Cache-Control': 'max-age=3600'
+      }
+    };
   } else {
     return {
       status: 404
@@ -36,13 +41,13 @@ async function enrichPost(post) {
 
   const childDatabases = await Promise.all(
     blocks
-    .filter((block) => block.type == "child_database")
-    .map(async (block) => {
-      return {
-        id: block.id,
-        children: await getEnrichedPosts(block.id),
-      };
-    })
+      .filter((block) => block.type == "child_database")
+      .map(async (block) => {
+        return {
+          id: block.id,
+          children: await getEnrichedPosts(block.id),
+        };
+      })
   )
 
   const blocksWithChildren = blocks.map((block) => {

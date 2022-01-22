@@ -7,7 +7,8 @@
 			return {
 				props: {
 					posts: await res.json()
-				}
+				},
+        maxage: 3600
 			};
 		}
 
