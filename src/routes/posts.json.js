@@ -1,7 +1,12 @@
 import { getDatabase, getPage, getBlocks } from '$lib/notion';
 
 export async function get() {
-  const posts = await getEnrichedPosts(process.env.NOTION_DATABASE);
+  const posts = await getEnrichedPosts(process.env.NOTION_DATABASE, [
+    {
+      property: 'Date',
+      direction: 'descending',
+    },
+  ]);
 
   if (posts) {
     return {
@@ -17,8 +22,8 @@ export async function get() {
   }
 }
 
-async function getEnrichedPosts(databaseId) {
-  const posts = await getDatabase(databaseId);
+async function getEnrichedPosts(databaseId, sorts = []) {
+  const posts = await getDatabase(databaseId, sorts);
   return await Promise.all(posts.map(post => enrichPost(post)));
 }
 

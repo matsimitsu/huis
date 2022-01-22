@@ -41,7 +41,7 @@
 				<div class="mt-1 text-sm flex items-center">
 					<p class="text-gray-600">
 						<FormattedDate
-							date={post.page.properties?.created?.date?.start || post.page.created_time}
+							date={post.page.properties?.Date?.date?.start || post.page.created_time}
 						/>
 					</p>
 					{#each post.page.properties.Tags.multi_select as tag}
