@@ -8,7 +8,7 @@
 				props: {
 					posts: await res.json()
 				},
-        maxage: 3600
+				maxage: 3600
 			};
 		}
 
@@ -39,8 +39,11 @@
 					<Text text={post.page.properties.Name.title} />
 				</h1>
 				<div class="mt-1 text-sm flex items-center">
-					<p class="text-gray-600"><FormattedDate date={post.page.created_time} /></p>
-
+					<p class="text-gray-600">
+						<FormattedDate
+							date={post.page.properties?.created?.date?.start || post.page.created_time}
+						/>
+					</p>
 					{#each post.page.properties.Tags.multi_select as tag}
 						<span class="ml-1 rounded rounded-full bg-gray-200 text-gray-500 px-2 py-1 text-xs"
 							>{tag.name}</span
