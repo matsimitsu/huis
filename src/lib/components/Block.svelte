@@ -7,6 +7,7 @@
 	export let block = {};
 	const { type, id } = block;
 	const value = block[type];
+	console.log(block);
 </script>
 
 {#if type == 'paragraph'}
@@ -25,6 +26,10 @@
 	<h3>
 		<Text text={value.text} />
 	</h3>
+{:else if type == 'bulleted_list_item' || type == 'numbered_list_item'}
+	<li>
+		<Text text={value.text} />
+	</li>
 {:else if type == 'divider'}
 	<hr />
 {:else if type == 'image'}
