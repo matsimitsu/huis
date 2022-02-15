@@ -11,7 +11,7 @@
 		class="underline-offset-4"
 	>
 		{#if textItem.text.link}
-			<a class="text-teal-600 decoration-2" href={textItem.text.link.url}>{textItem.text.content}</a>
+			<a class="text-teal-600 decoration-2 hover:text-teal-400" href={textItem.text.link.url}>{textItem.text.content}</a>
 		{:else if textItem.annotations.code}
 			<code>{textItem.text.content}</code>
 		{:else}

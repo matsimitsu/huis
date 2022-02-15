@@ -3,6 +3,7 @@
 	import Gallery from '$lib/components/Gallery.svelte';
 	import Image from '$lib/components/Image.svelte';
 	import Table from '$lib/components/Table.svelte';
+	import File from '$lib/components/File.svelte';
 
 	export let block = {};
 	const { type, id } = block;
@@ -40,4 +41,6 @@
 	<blockquote>{value.text[0].plain_text}</blockquote>
 {:else if type == 'child_database'}
 	<Gallery gallery={value} />
+{:else if type == 'file'}
+	<File file={value} />
 {/if}
