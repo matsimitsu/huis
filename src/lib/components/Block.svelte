@@ -6,7 +6,7 @@
 	import File from '$lib/components/File.svelte';
 
 	export let block = {};
-	const { type, id } = block;
+	const { type } = block;
 	const value = block[type];
 	console.log(block);
 </script>
