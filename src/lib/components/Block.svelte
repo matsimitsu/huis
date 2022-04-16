@@ -4,11 +4,12 @@
 	import Image from '$lib/components/Image.svelte';
 	import Table from '$lib/components/Table.svelte';
 	import File from '$lib/components/File.svelte';
+	import Video from '$lib/components/Video.svelte';
 
 	export let block = {};
 	const { type } = block;
 	const value = block[type];
-	console.log(block);
+	//console.log(block);
 </script>
 
 {#if type == 'paragraph'}
@@ -43,4 +44,6 @@
 	<Gallery gallery={value} />
 {:else if type == 'file'}
 	<File file={value} />
+{:else if type == 'video'}
+	<Video video={value} />
 {/if}

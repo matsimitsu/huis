@@ -18,6 +18,7 @@
 		alt={image.caption}
 		class={className + ' cursor-zoom-in'}
 		on:click={() => setIsOpen(true)}
+		loading="lazy"
 	/>
 	{#if image.caption}
 		<figcaption class="text-center"><Text text={image.caption} /></figcaption>
