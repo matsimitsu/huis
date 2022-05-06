@@ -87,7 +87,7 @@ async function cacheImage(block) {
 	const newBlock = { ...block, image}
 
 	// Short-circut if we already have the image for this block
-	if (exists(key)) { return newBlock }
+	if (await exists(key)) { return newBlock }
 
 	// Otherwise download the image and pass it to S3
 	const pass = new stream.PassThrough();
