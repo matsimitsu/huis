@@ -8,7 +8,7 @@
 				props: {
 					posts: await res.json()
 				},
-				maxage: 3600
+				cache: { maxage: 3600 }
 			};
 		}
 
