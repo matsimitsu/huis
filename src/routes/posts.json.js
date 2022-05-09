@@ -99,6 +99,6 @@ async function cacheImage(block) {
 
 function getKey(id, urlStr) {
 	const url = new URL(urlStr)
-	const baseName = path.basename(url.pathname)
-	return `huis/images/${id}/${baseName}`
+	const baseName = path.extname(url.pathname)
+	return `huis/images/${id}.${baseName}`
 }
