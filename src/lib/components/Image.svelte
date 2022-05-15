@@ -4,8 +4,7 @@
 
 	export let image = {};
 	export let className = '';
-	const src = image.type === 'external' ? image.external.url : image.file.url;
-
+	const src = image.type === 'external' ? image.external.url : image.file.resized ? image.file.resized["1000"] : image.file.url;
 	let isOpen = false;
 	const setIsOpen = (newIsOpen) => {
 		isOpen = newIsOpen;
