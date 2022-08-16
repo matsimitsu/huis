@@ -3,8 +3,8 @@
 	import { Dialog, DialogOverlay, Transition, TransitionChild } from '@rgossiaux/svelte-headlessui';
 
 	export let image = {};
+	export let files = [];
 	export let className = '';
-	const src = image.type === 'external' ? image.external.url : image.file.resized ? image.file.resized["1000"] : image.file.url;
 	let isOpen = false;
 	const setIsOpen = (newIsOpen) => {
 		isOpen = newIsOpen;
@@ -13,7 +13,7 @@
 
 <figure>
 	<img
-		{src}
+		src={image.src}
 		alt={image.caption}
 		class={className + ' cursor-zoom-in'}
 		on:click={() => setIsOpen(true)}
@@ -51,7 +51,7 @@
 			<div class="flex h-screen w-screen">
 				<div class="relative m-auto p-2 bg-white rounded">
 					<img
-						{src}
+						src={image.src}
 						alt={image.caption}
 						on:click={() => setIsOpen(false)}
 						class="object-contain mx-auto block rounded"

@@ -1,23 +1,33 @@
 <script>
 	export let text = [];
+	const textWithMarks = text.map((t) => {
+		const markObject = {};
+		for (const { type, ...rest } of t.marks || []) {
+			markObject[type] = rest;
+		}
+		return { ...t, markTypes: markObject };
+	});
 </script>
 
-{#each text as textItem}
+{#each textWithMarks as textItem}
 	<span
-		class:font-bold={textItem.annotations.bold}
-		class:italic={textItem.annotations.italic}
-		class:line-through={textItem.annotations.strikethrough}
-		class:underline={textItem.annotations.underline}
+		class:font-bold={textItem.markTypes.bold}
+		class:italic={textItem.markTypes.italic}
+		class:line-through={textItem.markTypes.strikethrough}
+		class:underline={textItem.markTypes.underline}
 		class="underline-offset-4"
 	>
-		{#if textItem.text.link}
-			<a class="text-teal-600 decoration-2 hover:text-teal-400" href={textItem.text.link.url}
-				>{textItem.text.content}</a
+		{#if textItem.markTypes.link}
+			<a
+				class="text-teal-600 decoration-2 hover:text-teal-400 cursor-pointer"
+				href={textItem.markTypes.link.href}
 			>
-		{:else if textItem.annotations.code}
-			<code>{textItem.text.content}</code>
+				{textItem.text}
+			</a>
+		{:else if textItem.markTypes.code}
+			<code>{textItem.text}</code>
 		{:else}
-			{textItem.text.content}
+			{textItem.text}
 		{/if}
 	</span>
 {/each}

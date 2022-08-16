@@ -2,16 +2,16 @@
 	"name": "huis",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "svelte-kit dev",
-		"build": "svelte-kit build",
-		"package": "svelte-kit package",
-		"preview": "svelte-kit preview",
+		"dev": "vite dev",
+		"build": "vite build",
+		"package": "vite package",
+		"preview": "vite preview",
 		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "next",
-		"@sveltejs/kit": "@sveltejs/kit@next.405",
+		"@sveltejs/kit": "next",
 		"@tailwindcss/forms": "^0.4.0",
 		"@tailwindcss/typography": "^0.5.0",
 		"autoprefixer": "^10.4.2",
@@ -29,8 +29,11 @@
 		"@notionhq/client": "^0.4.12",
 		"@rgossiaux/svelte-headlessui": "^1.0.0-beta.8",
 		"aws-sdk": "^2.1129.0",
+		"cross-fetch": "^3.1.5",
+		"dayjs": "^1.11.5",
 		"mime": "^3.0.0",
 		"path": "^0.12.7",
+		"pocketbase": "^0.4.0",
 		"request": "^2.88.2",
 		"stream": "^0.0.2"
 	}
