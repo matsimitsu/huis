@@ -6,8 +6,10 @@
 	import File from '$lib/components/File.svelte';
 	import Youtube from '$lib/components/Youtube.svelte';
 
-	export let content = {};
-	export let files = [];
+	export let post = {};
+
+	const content = post.content
+	const files = post["@expand"].files
 </script>
 
 {#each content.content as block}

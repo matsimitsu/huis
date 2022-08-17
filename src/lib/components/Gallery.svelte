@@ -10,6 +10,7 @@
 		<div class="h-48 overflow-hidden not-prose">
 			<Image
 				image={image.attrs}
+				{files}
 				className="object-cover h-48 block w-full not-prose hover:scale-110 transition-all duration-150"
 			/>
 		</div>

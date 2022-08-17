@@ -35,7 +35,7 @@
 						</div>
 					</header>
 					<div class="prose mt-8">
-						<Content content={post.content} files={post["@expand"].files}/>
+						<Content {post}/>
 					</div>
 				</div>
 			</article>

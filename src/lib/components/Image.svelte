@@ -5,6 +5,11 @@
 	export let image = {};
 	export let files = [];
 	export let className = '';
+
+	const imageWithVariations = files.find(i => i.id == image.id)
+	let thumb = "https://cdn.matsimitsu.dev" + (imageWithVariations?.versions?.jpg || {})[480]
+	let large =  "https://cdn.matsimitsu.dev" + (imageWithVariations?.versions?.jpg || {})[1200]
+
 	let isOpen = false;
 	const setIsOpen = (newIsOpen) => {
 		isOpen = newIsOpen;
@@ -13,7 +18,7 @@
 
 <figure>
 	<img
-		src={image.src}
+		src={thumb}
 		alt={image.caption}
 		class={className + ' cursor-zoom-in'}
 		on:click={() => setIsOpen(true)}
@@ -51,7 +56,7 @@
 			<div class="flex h-screen w-screen">
 				<div class="relative m-auto p-2 bg-white rounded">
 					<img
-						src={image.src}
+						src={large}
 						alt={image.caption}
 						on:click={() => setIsOpen(false)}
 						class="object-contain mx-auto block rounded"
